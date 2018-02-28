@@ -25,20 +25,20 @@ public class JobDAOImpl implements JobDAO{
 
 	public void addJob(Job job) {
 		Session session=sessionFactory.getCurrentSession();
-		session.saveOrUpdate(job);
+		session.save(job);
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Job> getAllJobs() {
-		Session session=sessionFactory.openSession();
+		Session session=sessionFactory.getCurrentSession();
 		Query query=session.createQuery("from Job");
 		return query.list();
 	}
 
 	public Job getJob(int id) {
-		 Session session=sessionFactory.openSession();
-		 Job job=(Job)session.get(Job.class, id);
-		 return job;
+		Session session=sessionFactory.getCurrentSession();
+		Job job=(Job)session.get(Job.class, id);
+		return job;
 	}
 
 }
