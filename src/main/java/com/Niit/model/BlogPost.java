@@ -6,22 +6,31 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="blogpost_table")
-public class Blog {
+public class BlogPost {
 	
-	public Blog(){
+	public BlogPost(){
 		System.out.println("Blog");
 	}
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
+	@Column(nullable=false)
 	private String blogTitle;
 	@Lob
+	@Column(nullable=false)
 	private String blogContent;
 	private Date postedOn;
 	@ManyToOne
 	private User postedBy;
 	private int likes;
+	private boolean approved;
+	public boolean isApproved() {
+		return approved;
+	}
+	public void setApproved(boolean approved) {
+		this.approved = approved;
+	}
 	public int getId() {
 		return id;
 	}
