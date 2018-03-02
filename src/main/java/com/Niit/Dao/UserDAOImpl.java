@@ -16,16 +16,17 @@ public class UserDAOImpl implements UserDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+	
 	public UserDAOImpl(){
 		System.out.println("UserDAOImpl");
 	}
+	
 	public void registerUser(User user) {
 
 		Session session= sessionFactory.getCurrentSession();
 		session.save(user);
 	}
-	public boolean isEmailUnique(String email) {
-		
+	public boolean isEmailUnique(String email) {	
 		Session session= sessionFactory.getCurrentSession();
 		User user = (User)session.get(User.class, email);
 		if(user==null)

@@ -14,31 +14,30 @@ import com.Niit.model.Job;
 
 @Repository
 @Transactional
-public class JobDAOImpl implements JobDAO{
-	
-	@Autowired
-	private SessionFactory  sessionFactory;
-	
-	public JobDAOImpl() {
+public class JobDAOImpl implements JobDAO {
+
+	public JobDAOImpl(){
+		
 		System.out.println("JobDAOImpl");
 	}
+	
+	@Autowired
+	private SessionFactory sessionFactory;
+	
+		public void addJob(Job job) {
+			Session session=sessionFactory.getCurrentSession();
+			session.save(job);
+		}
+		public List<Job> getAllJobs() {
+			Session session=sessionFactory.getCurrentSession();
+			Query query=session.createQuery("from Job");
+			return query.list();
+		}
+		public Job getJob(int id) {
+			Session session=sessionFactory.getCurrentSession();
+			Job job=(Job)session.get(Job.class, id);
+			return job;
+		}
+		
 
-	public void addJob(Job job) {
-		Session session=sessionFactory.getCurrentSession();
-		session.save(job);
 	}
-
-	@SuppressWarnings("unchecked")
-	public List<Job> getAllJobs() {
-		Session session=sessionFactory.getCurrentSession();
-		Query query=session.createQuery("from Job");
-		return query.list();
-	}
-
-	public Job getJob(int id) {
-		Session session=sessionFactory.getCurrentSession();
-		Job job=(Job)session.get(Job.class, id);
-		return job;
-	}
-
-}

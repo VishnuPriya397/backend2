@@ -9,6 +9,10 @@ import javax.persistence.Table;
 @Table(name="user_table")
 public class User {
 
+	public User(){
+		System.out.println("User.");
+	}
+	
 	@Id
 	private String email;
 	private String password;
