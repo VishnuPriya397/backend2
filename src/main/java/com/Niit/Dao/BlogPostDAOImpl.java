@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.Niit.model.BlogPost;
+import com.Niit.model.Notification;
 
 @Repository
 @Transactional
@@ -41,6 +42,28 @@ public BlogPostDAOImpl(){
 		Session session=sessionFactory.getCurrentSession();
 		BlogPost blogPost=(BlogPost)session.get(BlogPost.class, id);
 		return blogPost;
+	}
+
+    public void approve(BlogPost blog) {
+		Session session=sessionFactory.getCurrentSession();
+		blog.setApproved(true);
+		session.update(blog);
+		Notification notification=new Notification();
+		notification.setBlogTitle(blog.getBlogTitle());
+		notification.setApprovalStatus("Approved");
+		notification.setEmail(blog.getPostedBy().getEmail());
+		session.save(notification);
+	}
+    
+	public void reject(BlogPost blog,String rejectionReason) {
+		Session session=sessionFactory.getCurrentSession();
+		Notification notification=new Notification();
+		notification.setBlogTitle(blog.getBlogTitle());
+		notification.setApprovalStatus("Rejected");
+		notification.setEmail(blog.getPostedBy().getEmail());
+		notification.setRejectionReason(rejectionReason);
+		session.save(notification);
+		session.delete(blog);
 	}
 
 }
