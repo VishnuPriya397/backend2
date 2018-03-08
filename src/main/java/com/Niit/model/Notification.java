@@ -21,7 +21,7 @@ public class Notification {
 	private String email;
 	private String approvalStatus;
 	private String rejectionReason;
-	private String viewed;
+	private boolean viewed;
 	public int getId() {
 		return id;
 	}
@@ -52,12 +52,12 @@ public class Notification {
 	public void setRejectionReason(String rejectionReason) {
 		this.rejectionReason = rejectionReason;
 	}
-	public String getViewed() {
+	public boolean isViewed() {
 		return viewed;
 	}
-	public void setViewed(String viewed) {
+	public void setViewed(boolean viewed) {
 		this.viewed = viewed;
 	}
-	
+
 	
 }
