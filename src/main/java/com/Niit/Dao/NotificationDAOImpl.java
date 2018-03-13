@@ -16,7 +16,7 @@ import com.Niit.model.Notification;
 @Transactional
 public class NotificationDAOImpl implements NotificationDAO {
 
-public NotificationDAOImpl(){
+    public NotificationDAOImpl(){
 		
 		System.out.println("NotificationDAOImpl");
 	}

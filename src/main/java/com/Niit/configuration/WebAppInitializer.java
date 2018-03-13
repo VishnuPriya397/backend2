@@ -6,7 +6,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 
 
     public WebAppInitializer(){
-    	System.out.println("WebAppInitializer class is loaded and Instantiated");
+    	System.out.println("WebAppInitializer");
     }
     
 	@Override
