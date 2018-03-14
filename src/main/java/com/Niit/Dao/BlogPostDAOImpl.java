@@ -18,7 +18,7 @@ import com.Niit.model.Notification;
 @Transactional
 public class BlogPostDAOImpl implements BlogPostDAO {
 	
-public BlogPostDAOImpl(){
+    public BlogPostDAOImpl(){
 		
 		System.out.println("BlogPostDAOImpl");
 	}
