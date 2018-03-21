@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.Niit.model.BlogComment;
 import com.Niit.model.BlogPost;
 import com.Niit.model.BlogPostLikes;
+import com.Niit.model.Chat;
 import com.Niit.model.Friend;
 import com.Niit.model.Job;
 import com.Niit.model.Notification;
