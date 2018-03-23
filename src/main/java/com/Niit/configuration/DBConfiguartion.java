@@ -42,7 +42,7 @@ public class DBConfiguartion {
 			hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
 			hibernateProperties.setProperty("hibernate.show_sql", "true");
 			lsf.addProperties(hibernateProperties);
-			Class classes[]=new Class[]{User.class,Job.class,BlogPost.class,Notification.class,BlogPostLikes.class,BlogComment.class,ProfilePicture.class,Friend.class};//class objects of all entities
+			Class classes[]=new Class[]{User.class,Job.class,BlogPost.class,Notification.class,BlogPostLikes.class,BlogComment.class,ProfilePicture.class,Friend.class,Chat.class};//class objects of all entities
 		    return lsf.addAnnotatedClasses(classes).buildSessionFactory();
 	  }
 	  

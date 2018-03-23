@@ -1,10 +1,5 @@
 package com.Niit.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="chat")
 public class Chat {
 	
 	public Chat(){
@@ -32,6 +27,11 @@ public class Chat {
 	public void setFrom(String from) {
 		this.from = from;
 	}
-
+	
+	@Override
+	public String toString() 
+	{
+		return "Chat [message=" + message + ", to=" + to + "]";
+	}
 
 }

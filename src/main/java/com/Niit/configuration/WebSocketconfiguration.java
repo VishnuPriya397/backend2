@@ -17,7 +17,7 @@ public class WebSocketconfiguration implements WebSocketMessageBrokerConfigurer{
 
 	public void registerStompEndpoints(StompEndpointRegistry registry) {
 		System.out.println("REGISTER STOMP ENDPOINTS...");
-		registry.addEndpoint("/portfolio").withSockJS();
+		registry.addEndpoint("/chatmodule").withSockJS();
 	}
 
 

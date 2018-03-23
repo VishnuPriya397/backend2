@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.Niit.model.Friend;
+import com.Niit.model.Job;
 import com.Niit.model.User;
 
 @Repository
@@ -87,5 +88,12 @@ public class FriendDAOImpl implements FriendDAO {
 		friendsList1.addAll(friendsList2);
 		return friendsList1;
 	 }
+
+	public Friend getFriend(int id) {
+			Session session=sessionFactory.getCurrentSession();
+			Friend friend=(Friend)session.get(Friend.class, id);
+			return friend;
+		}
 	
 }
+	
