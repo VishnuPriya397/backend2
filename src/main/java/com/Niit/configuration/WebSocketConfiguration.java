@@ -10,14 +10,15 @@ import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
 
 @Configuration
-@EnableWebSocketMessageBroker 
+@EnableWebSocketMessageBroker  // enable broker based stomp messaging
 @EnableScheduling
 @ComponentScan(basePackages="com.Niit")
-public class WebSocketconfiguration implements WebSocketMessageBrokerConfigurer{
+public class WebSocketConfiguration implements WebSocketMessageBrokerConfigurer
+{
 
 	public void registerStompEndpoints(StompEndpointRegistry registry) {
 		System.out.println("REGISTER STOMP ENDPOINTS...");
-		registry.addEndpoint("/chatmodule").withSockJS();
+		registry.addEndpoint("/portfolio").withSockJS();
 	}
 
 
@@ -29,14 +30,11 @@ public class WebSocketconfiguration implements WebSocketMessageBrokerConfigurer{
 
 	
 	public void configureClientInboundChannel(ChannelRegistration registration) {
-		// TODO Auto-generated method stub
-		
 	}
 
 
-	public void configureClientOutboundChannel(ChannelRegistration registration) {
-		// TODO Auto-generated method stub
-		
+	public void configureClientOutboundChannel(ChannelRegistration registration) {	
 	}
+
 
 }

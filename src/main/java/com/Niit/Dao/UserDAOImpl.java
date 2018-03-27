@@ -1,5 +1,7 @@
 package com.Niit.Dao;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.hibernate.Query;
@@ -55,6 +57,17 @@ public class UserDAOImpl implements UserDAO {
 	public void updateUser(User user) {
 		Session session=sessionFactory.getCurrentSession();
 		session.update(user);
+	}
+
+	public List<User> searchUser(String name) {
+		System.out.println("name");
+		Session session=sessionFactory.getCurrentSession();
+		Query query=session.createQuery("from User u where u.firstName like ? or u.lastName like ? or u.email like ?");
+		query.setString(0,"%" + name + "%");
+		query.setString(1,"%" + name + "%");
+		query.setString(2,"%" + name + "%");
+		List<User> users=query.list();
+		return users;
 	}
 
 }

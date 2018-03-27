@@ -1,5 +1,7 @@
 package com.Niit.Dao;
 
+import java.util.List;
+
 import com.Niit.model.User;
 
 public interface UserDAO {
@@ -10,4 +12,5 @@ public interface UserDAO {
 	void update(User validUser);
 	User getUser(String email);
 	void updateUser(User user);
+	List<User> searchUser(String name);
 }

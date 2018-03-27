@@ -19,5 +19,4 @@ public interface FriendDAO {
 
 	public List<Friend> listOfFriends(String email);
 
-	Friend getFriend(int id);
 }
