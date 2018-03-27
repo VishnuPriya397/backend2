@@ -62,7 +62,7 @@ public class UserDAOImpl implements UserDAO {
 	public List<User> searchUser(String name) {
 		System.out.println("name");
 		Session session=sessionFactory.getCurrentSession();
-		Query query=session.createQuery("from User u where u.firstName like ? or u.lastName like ? or u.email like ?");
+		Query query=session.createQuery("from User u where u.firstname like ? or u.lastname like ? or u.email like ?");
 		query.setString(0,"%" + name + "%");
 		query.setString(1,"%" + name + "%");
 		query.setString(2,"%" + name + "%");
